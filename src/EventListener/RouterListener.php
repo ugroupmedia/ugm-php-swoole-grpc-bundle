@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ugm\SwooleGrpcBundle\EventListener;
+namespace Ugm\SwooleGrpc\EventListener;
 
 use Spiral\GRPC\Exception\UnimplementedException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

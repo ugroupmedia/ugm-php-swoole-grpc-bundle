@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ugm\SwooleGrpcBundle;
+namespace Ugm\SwooleGrpc;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;

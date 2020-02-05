@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ugm\SwooleGrpcBundle\ArgumentResolver;
+namespace Ugm\SwooleGrpc\ArgumentResolver;
 
 use Google\Protobuf\Internal\Message;
 use Symfony\Component\HttpFoundation\Request;

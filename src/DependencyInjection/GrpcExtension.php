@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ugm\DependencyInjection;
+namespace Ugm\SwooleGrpc\DependencyInjection;
 
 use Exception;
 use Spiral\GRPC\ServiceInterface;

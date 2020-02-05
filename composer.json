@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Ugm\\SwooleGrpcBundle\\": "src/"
+            "Ugm\\SwooleGrpc\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ugm\\SwooleGrpcBundle\\Tests\\": "tests/"
+            "Ugm\\SwooleGrpc\\Tests\\": "tests/"
         }
     }
 }

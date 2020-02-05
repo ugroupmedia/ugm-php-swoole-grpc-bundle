@@ -6,7 +6,7 @@ namespace Ugm\DependencyInjection\CompilerPass;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Ugm\SwooleGrpcBundle\EventListener\RouterListener;
+use Ugm\SwooleGrpc\EventListener\RouterListener;
 
 class GrpcServiceMapPass implements CompilerPassInterface
 {
