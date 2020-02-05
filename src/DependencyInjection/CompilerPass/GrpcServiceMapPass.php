@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ugm\DependencyInjection\CompilerPass;
+namespace Ugm\SwooleGrpc\DependencyInjection\CompilerPass;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
