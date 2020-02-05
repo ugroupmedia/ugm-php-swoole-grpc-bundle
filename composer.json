@@ -1,5 +1,5 @@
 {
-    "name": "sonata-project/admin-bundle",
+    "name": "ugroupmedia/swoole-grpc-bundle",
     "license": "MIT",
     "type": "symfony-bundle",
     "description": "Provides gRPC+Protobuf support in Symfony.",
