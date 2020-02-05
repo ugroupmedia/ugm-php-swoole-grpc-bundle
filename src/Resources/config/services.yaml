@@ -4,6 +4,9 @@ services:
         autoconfigure: true
         public: false
 
+    Ugm\SwooleGrpc\:
+        resource: '../../*'
+
     K911\Swoole\Bridge\Symfony\HttpFoundation\RequestFactoryInterface:
         class: Ugm\SwooleGrpc\Server\HttpFoundation\FromGrpcRequestFactory
 

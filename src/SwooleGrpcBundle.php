@@ -6,7 +6,7 @@ namespace Ugm\SwooleGrpc;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Ugm\DependencyInjection\CompilerPass\GrpcServiceMapPass;
+use Ugm\SwooleGrpc\DependencyInjection\CompilerPass\GrpcServiceMapPass;
 
 final class SwooleGrpcBundle extends Bundle
 {
