@@ -5,6 +5,7 @@
     "description": "Provides gRPC+Protobuf support in Symfony.",
     "require": {
         "php": "^7.3",
+        "k911/swoole-bundle": "^0.7.5",
         "spiral/php-grpc": "^1.0",
         "symfony/dependency-injection": "^4.0 || ^5.0",
         "symfony/event-dispatcher": "^4.0 || ^5.0",

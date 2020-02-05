@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    K911\Swoole\Bridge\Symfony\HttpFoundation\RequestFactoryInterface:
+        class: Ugm\SwooleGrpc\Server\HttpFoundation\FromGrpcRequestFactory
+
+    Ugm\SwooleGrpc\Server\HttpFoundation\GrpcResponseProcessor:
+        decorates: K911\Swoole\Bridge\Symfony\HttpFoundation\ResponseProcessorInterface
