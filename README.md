@@ -1,8 +1,17 @@
 # Generating PHP code from proto files
-## Prerequisites
+## Prerequisites MAC
+```
+brew install protobuf
+wget https://github.com/spiral/php-grpc/releases/download/v1.2.0/protoc-gen-php-grpc-1.2.0-darwin-amd64.zip
+unzip protoc-gen-php-grpc-1.2.0-darwin-amd64.zip  
+sudo mv protoc-gen-php-grpc-1.2.0-darwin-amd64/protoc-gen-php-grpc /usr/local/bin/
+rm -fR protoc-gen-php-grpc-1.2.0-darwin-amd64
+rm protoc-gen-php-grpc-1.2.0-darwin-amd64.zip
+```
+
+## Prerequisites LINUX
 1. Code for different languages is generated using a the "Protocol Compiler" or "protoc".
 You can use the following script to automatically download and install it.
-Replace "linux" with "osx" if you're using MacOS.
 ```shell script
 get_latest_release() {
   # $1 repository name, e. g. foobar-org/foobar
@@ -24,7 +33,6 @@ Or download and install `protoc` manually from https://github.com/protocolbuffer
 For that we are going to use `protoc-gen-php-grpc` plugin from Spiral. It will provide an extra option
 `--php-grpc_out` for `protoc` which is used to specify path for gRPC server stubs output.
 Use the command below to install it on Linux.
-Replace "linux" with "darwin" for MacOS.
 ```shell script
 mkdir protoc-gen-php-grpc
 curl -sSL "$(get_latest_release spiral/php-grpc protoc-gen-php-grpc-.*-linux-amd64.tar.gz)" | \
