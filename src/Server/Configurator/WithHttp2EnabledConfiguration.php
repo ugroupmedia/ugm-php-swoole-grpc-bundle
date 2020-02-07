@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ugm\SwooleGrpc\Configurator;
+namespace Ugm\SwooleGrpc\Server\Configurator;
 
 use K911\Swoole\Server\Configurator\ConfiguratorInterface;
 use Swoole\Http\Server;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ugm\SwooleGrpc\HttpFoundation;
+namespace Ugm\SwooleGrpc\Server\HttpFoundation;
 
 use K911\Swoole\Bridge\Symfony\HttpFoundation\ResponseProcessorInterface;
 use Swoole\Http\Response as SwooleResponse;
