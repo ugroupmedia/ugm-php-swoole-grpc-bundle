@@ -16,6 +16,9 @@
         "friendsofphp/php-cs-fixer": "^2.16",
         "phpunit/phpunit": "^8.5"
     },
+    "bin": [
+        "generate-contract.sh"
+    ],
     "config": {
         "sort-packages": true
     },
