@@ -5,23 +5,13 @@ timestamp=$(date '+%Y%m%d%H%M%S')
 tmpdir="/tmp/${timestamp}"
 
 mkdir -p "$tmpdir"
-shopt -s globstar
 
-# Perform glob expansion explicitly
-# shellcheck disable=SC2206
-import_dirs=($1)
-import_dirs_args=()
-for file in "${import_dirs[@]}"; do
-  import_dirs_args=( "${import_dirs_args[@]}" "-I" "$file" )
-done
+mapfile -t files_to_compile < <(find "$2" -type f -name "*.proto")
 
-# Perform glob expansion explicitly
-# shellcheck disable=SC2206
-files_to_compile=($2)
 protoc \
   --php_out="$tmpdir" \
   --php-grpc_out="$tmpdir" \
-  "${import_dirs_args[@]}" \
+  -I "$1" \
   "${files_to_compile[@]}"
 
 rm -rf src/Contracts

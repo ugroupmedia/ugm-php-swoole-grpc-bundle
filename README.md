@@ -55,11 +55,8 @@ For convenience `bin/generate-contract.sh` script is provided. It assumes that t
 - Output location is `src/Contract`
 Usage:
 ```shell script
+# Compile concrete proto file
 bin/generate-contract.sh path/to/import/dir path/to/protos/to/compile.proto
-# Note that the arguments can use glob patterns to specify multiple import dirs
-# and to compile multiple proto files at once.
-# Arguments containing glob patterns must be quoted, glob expansion will be
-# performed inside the generate-contract.sh script itself
-# Example:
-bin/generate-contract.sh 'import/path/*' 'path/to/protos/**/*.proto'
+# Compile all proto files in a dir
+bin/generate-contract.sh path/to/import/dir path/to/protos
 ```
