@@ -17,7 +17,7 @@
         "phpunit/phpunit": "^8.5"
     },
     "bin": [
-        "generate-contract.sh"
+        "bin/generate-contract.sh"
     ],
     "config": {
         "bin-dir": "bin",
