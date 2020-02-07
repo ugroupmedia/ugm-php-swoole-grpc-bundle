@@ -9,14 +9,7 @@ please contact us to the email above.
 EOF;
 $header = sprintf($header, date('Y'));
 $finder = PhpCsFixer\Finder::create()
-    ->exclude('cache')
-    ->exclude('var')
-    ->exclude('docker')
-    ->exclude('codedeploy')
-    ->exclude('.travis')
     ->exclude('bin')
-    ->exclude('public/bundles')
-    ->exclude('pnp-scripts')
     ->exclude('tests')
     ->exclude('vendor')
     ->in(__DIR__);
