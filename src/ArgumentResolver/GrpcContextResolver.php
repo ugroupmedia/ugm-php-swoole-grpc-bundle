@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 use Ugm\SwooleGrpc\Context\GrpcContextManager;
+use function is_a;
 
 class GrpcContextResolver implements ArgumentValueResolverInterface
 {
@@ -27,7 +28,7 @@ class GrpcContextResolver implements ArgumentValueResolverInterface
      */
     public function supports(Request $request, ArgumentMetadata $argument): bool
     {
-        return is_subclass_of($argument->getType(), ContextInterface::class);
+        return $argument->getType() === ContextInterface::class || is_a($argument->getType(), ContextInterface::class);
     }
 
     /**
