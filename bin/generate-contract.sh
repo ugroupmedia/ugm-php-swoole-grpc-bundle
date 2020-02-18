@@ -14,6 +14,6 @@ protoc \
   -I "$1" \
   "${files_to_compile[@]}"
 
-rm -rf src/Contracts
+rm -rf src/Contract
 mv "${tmpdir}/App/Contract" src/
 rm -rf "$tmpdir"
