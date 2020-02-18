@@ -15,5 +15,5 @@ protoc \
   "${files_to_compile[@]}"
 
 rm -rf src/Contracts
-mv "${tmpdir}/App/Contracts" src/
+mv "${tmpdir}/App/Contract" src/
 rm -rf "$tmpdir"
