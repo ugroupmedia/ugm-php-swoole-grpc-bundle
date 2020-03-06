@@ -7,8 +7,8 @@ services:
     Ugm\SwooleGrpc\:
         resource: '../../*'
 
-    K911\Swoole\Bridge\Symfony\HttpFoundation\RequestFactoryInterface:
-        class: Ugm\SwooleGrpc\Server\HttpFoundation\FromGrpcRequestFactory
+    Ugm\SwooleGrpc\Server\HttpFoundation\FromGrpcRequestFactory:
+        decorates: K911\Swoole\Bridge\Symfony\HttpFoundation\RequestFactoryInterface
 
     Ugm\SwooleGrpc\Server\HttpFoundation\GrpcResponseProcessor:
         decorates: K911\Swoole\Bridge\Symfony\HttpFoundation\ResponseProcessorInterface
