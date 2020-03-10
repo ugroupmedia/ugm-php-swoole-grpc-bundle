@@ -11,6 +11,7 @@ mapfile -t files_to_compile < <(find "$2" -type f -name "*.proto")
 protoc \
   --php_out="$tmpdir" \
   --php-grpc_out="$tmpdir" \
+  --php-grpc_opt="FilePerMethod=true" \
   -I "$1" \
   "${files_to_compile[@]}"
 
