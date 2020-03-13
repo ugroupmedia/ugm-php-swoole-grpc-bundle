@@ -25,11 +25,10 @@ final class GrpcResponseProcessor implements ResponseProcessorInterface
      */
     public function process(HttpFoundationResponse $httpFoundationResponse, SwooleResponse $swooleResponse): void
     {
-        if (!$httpFoundationResponse instanceof StreamedResponse) {
-            $swooleResponse->trailer('grpc-status', '0');
-            $content = $httpFoundationResponse->getContent();
-            $content = pack('CN', 0, strlen($content)).$content;
-            $httpFoundationResponse->setContent($content);
+        $contentType = $httpFoundationResponse->headers->get('Content-Type');
+        if ($contentType === 'application/grpc') {
+            $swooleResponse->trailer('grpc-status', $httpFoundationResponse->getStatusCode());
+            $httpFoundationResponse->setStatusCode(200);
         }
 
         $this->decorated->process($httpFoundationResponse, $swooleResponse);
