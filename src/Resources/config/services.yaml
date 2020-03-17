@@ -12,3 +12,13 @@ services:
 
     Ugm\SwooleGrpc\Server\HttpFoundation\GrpcResponseProcessor:
         decorates: K911\Swoole\Bridge\Symfony\HttpFoundation\ResponseProcessorInterface
+
+    ugm.grpc_bundle.add_grpc_request_format_listener:
+        class: Symfony\Component\HttpKernel\EventListener\AddRequestFormatsListener
+        arguments:
+            - proto:
+                - 'application/grpc'
+                - 'application/grpc+proto'
+                - 'application/vnd.google.protobuf'
+                - 'application/x-protobuf'
+                - 'application/x-google-protobuf'
