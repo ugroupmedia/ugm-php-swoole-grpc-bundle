@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Ugm\SwooleGrpc\Server\HttpFoundation;
 
-use ErrorException;
 use K911\Swoole\Bridge\Symfony\HttpFoundation\ResponseProcessorInterface;
 use Swoole\Http\Response as SwooleResponse;
 use Symfony\Component\HttpFoundation\Response as HttpFoundationResponse;
@@ -34,31 +33,24 @@ final class GrpcResponseProcessor implements ResponseProcessorInterface
             $content = pack('CN', 0, strlen($content)).$content;
             $httpFoundationResponse->setContent($content);
 
-            // TODO: we should probably extend Symfony's Response class
-            //       and proper trailers to it instead of messing with headers
             if ($httpFoundationResponse->headers->has('Grpc-Message')) {
                 $value = $httpFoundationResponse->headers->get('Grpc-Message', '');
                 $httpFoundationResponse->headers->remove('Grpc-Message');
-                $swooleResponse->trailer('grpc-message', $value);
+                $httpFoundationResponse->headers->set('X-Grpc-Message', $value);
             }
 
-            try {
-                if ($httpFoundationResponse->headers->has('Grpc-Status-Details-Bin')) {
-                    $value = $httpFoundationResponse->headers->get('Grpc-Status-Details-Bin', '');
-                    $httpFoundationResponse->headers->remove('Grpc-Status-Details-Bin');
-                    $swooleResponse->trailer('Grpc-Status-Details-Bin', $value);
-                }
-            } catch (ErrorException $e) {
-                // Setting too long value throws an exception. It's not so critical, let's ignore it for now.
-                // TODO: figure out how to increase max header/trailer size
+            if ($httpFoundationResponse->headers->has('Grpc-Status-Details-Bin')) {
+                $value = $httpFoundationResponse->headers->get('Grpc-Status-Details-Bin', '');
+                $httpFoundationResponse->headers->remove('Grpc-Status-Details-Bin');
+                $httpFoundationResponse->headers->set('X-Grpc-Status-Details-Bin', $value);
             }
 
             if ($httpFoundationResponse->headers->has('Grpc-Status')) {
                 $value = $httpFoundationResponse->headers->get('Grpc-Status', '');
                 $httpFoundationResponse->headers->remove('Grpc-Status');
-                $swooleResponse->trailer('Grpc-Status', $value);
+                $httpFoundationResponse->headers->set('X-Grpc-Status', $value);
             } else {
-                $swooleResponse->trailer('Grpc-Status', '0');
+                $httpFoundationResponse->headers->set('X-Grpc-Status', '0');
             }
         }
 
