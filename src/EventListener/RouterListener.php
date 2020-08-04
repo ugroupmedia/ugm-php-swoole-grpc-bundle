@@ -36,7 +36,7 @@ class RouterListener implements EventSubscriberInterface
         }
 
         if ($request->getMethod() === Request::METHOD_POST
-            && strpos($request->headers->get('CONTENT_TYPE'), 'application/grpc') === 0
+            && strpos($request->headers->get('CONTENT_TYPE', ''), 'application/grpc') === 0
         ) {
             $uri = $request->getRequestUri();
             if (isset($this->serviceMap[$uri])) {
