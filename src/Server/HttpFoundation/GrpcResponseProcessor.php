@@ -33,24 +33,8 @@ final class GrpcResponseProcessor implements ResponseProcessorInterface
             $content = pack('CN', 0, strlen($content)).$content;
             $httpFoundationResponse->setContent($content);
 
-            if ($httpFoundationResponse->headers->has('Grpc-Message')) {
-                $value = $httpFoundationResponse->headers->get('Grpc-Message', '');
-                $httpFoundationResponse->headers->remove('Grpc-Message');
-                $httpFoundationResponse->headers->set('Pnp-Grpc-Message', $value);
-            }
-
-            if ($httpFoundationResponse->headers->has('Grpc-Status-Details-Bin')) {
-                $value = $httpFoundationResponse->headers->get('Grpc-Status-Details-Bin', '');
-                $httpFoundationResponse->headers->remove('Grpc-Status-Details-Bin');
-                $httpFoundationResponse->headers->set('Pnp-Grpc-Status-Details-Bin', $value);
-            }
-
-            if ($httpFoundationResponse->headers->has('Grpc-Status')) {
-                $value = $httpFoundationResponse->headers->get('Grpc-Status', '');
-                $httpFoundationResponse->headers->remove('Grpc-Status');
-                $httpFoundationResponse->headers->set('Pnp-Grpc-Status', $value);
-            } else {
-                $httpFoundationResponse->headers->set('Pnp-Grpc-Status', '0');
+            if (!$httpFoundationResponse->headers->has('Grpc-Status')) {
+                $httpFoundationResponse->headers->set('Grpc-Status', '0');
             }
         }
 
