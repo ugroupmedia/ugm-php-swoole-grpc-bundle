@@ -7,6 +7,7 @@ namespace Ugm\SwooleGrpc\Server\HttpFoundation;
 use K911\Swoole\Bridge\Symfony\HttpFoundation\RequestFactoryInterface;
 use Swoole\Http\Request as SwooleRequest;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
+use Ugm\SwooleGrpc\Server\HttpFoundation\Request as GrpcRequest;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use function strlen;
 use function strpos;
@@ -43,7 +44,7 @@ final class FromGrpcRequestFactory implements RequestFactoryInterface
                 throw new BadRequestHttpException('Invalid request body length');
             }
 
-            return new HttpFoundationRequest(
+            return new GrpcRequest(
                 $request->get ?? [],
                 $request->post ?? [],
                 [],
