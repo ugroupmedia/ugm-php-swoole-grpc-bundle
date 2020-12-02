@@ -38,7 +38,11 @@ final class FromGrpcRequestFactory implements RequestFactoryInterface
 
             // Cut off length from the actual content, verify content length
             $content = $request->rawContent();
-            $len = unpack('N', substr($content, 1, 4))[1];
+            $lenPrefix = substr($content, 1, 4);
+            if ($lenPrefix === false || strlen($lenPrefix) !== 4) {
+                throw new BadRequestHttpException('Invalid request body.');
+            }
+            $len = unpack('N', $lenPrefix)[1];
             $data = substr($content, 5);
             if (strlen($data) !== $len) {
                 throw new BadRequestHttpException('Invalid request body length');
