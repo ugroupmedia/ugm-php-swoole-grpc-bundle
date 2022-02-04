@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ugm\SwooleGrpc\EventListener;
 
-use Spiral\GRPC\Exception\UnimplementedException;
+use Spiral\RoadRunner\GRPC\Exception\UnimplementedException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
@@ -16,7 +16,7 @@ class RouterListener implements EventSubscriberInterface
     /**
      * @var array<string, string>
      */
-    private $serviceMap;
+    private array $serviceMap;
 
     /**
      * @param array<string, string> $serviceMap
