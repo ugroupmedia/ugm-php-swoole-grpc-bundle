@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ugm\SwooleGrpc\ArgumentResolver;
 
-use Spiral\GRPC\ContextInterface;
+use Spiral\RoadRunner\GRPC\ContextInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;

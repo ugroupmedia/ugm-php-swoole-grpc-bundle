@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Ugm\SwooleGrpc\DependencyInjection;
 
 use Exception;
-use Spiral\GRPC\MethodInterface;
-use Spiral\GRPC\ServiceInterface;
+use Spiral\RoadRunner\GRPC\MethodInterface;
+use Spiral\RoadRunner\GRPC\ServiceInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
@@ -28,7 +27,7 @@ final class SwooleGrpcExtension extends Extension
         $container
             ->registerForAutoconfiguration(ServiceInterface::class)
             ->addTag('grpc.service');
-        if (interface_exists('Spiral\GRPC\MethodInterface')) {
+        if (interface_exists('Spiral\RoadRunner\GRPC\MethodInterface')) {
             $container
                 ->registerForAutoconfiguration(MethodInterface::class)
                 ->addTag('grpc.method');

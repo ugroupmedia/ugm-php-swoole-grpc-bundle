@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Ugm\SwooleGrpc\DependencyInjection\CompilerPass;
 
-use Spiral\GRPC\MethodInterface;
-use Spiral\GRPC\ServiceInterface;
+use Spiral\RoadRunner\GRPC\MethodInterface;
+use Spiral\RoadRunner\GRPC\ServiceInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Ugm\SwooleGrpc\DependencyInjection\Exception\ServiceConfigurationException;
@@ -58,7 +58,7 @@ class GrpcServiceMapPass implements CompilerPassInterface
         }
 
 
-        if (interface_exists('Spiral\GRPC\MethodInterface')) {
+        if (interface_exists('Spiral\RoadRunner\GRPC\MethodInterface')) {
             foreach ($container->findTaggedServiceIds($this->grpcMethodTag) as $id => $attr) {
                 $service = $container->getDefinition($id);
                 $class = $service->getClass();

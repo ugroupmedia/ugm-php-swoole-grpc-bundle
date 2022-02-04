@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ugm\SwooleGrpc\EventListener;
 
-use Spiral\GRPC\ResponseHeaders;
+use Spiral\RoadRunner\GRPC\ResponseHeaders;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;

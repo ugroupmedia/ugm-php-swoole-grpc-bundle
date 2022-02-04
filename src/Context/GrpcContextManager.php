@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Ugm\SwooleGrpc\Context;
 
-use Spiral\GRPC\Context;
-use Spiral\GRPC\ResponseHeaders;
+use Spiral\RoadRunner\GRPC\Context;
+use Spiral\RoadRunner\GRPC\ResponseHeaders;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\Event\TerminateEvent;
